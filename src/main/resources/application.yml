@@ -1,0 +1,10 @@
+server:
+   port: 8068
+logging:
+   file:
+      name: /Users/xingnliu/temp/output.log
+   level:
+      root: info
+spring:
+   profiles:
+      active: dev1
