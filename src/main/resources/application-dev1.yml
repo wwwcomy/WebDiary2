@@ -4,3 +4,8 @@ spring:
       username: root
       password: 
       driver-class-name: com.mysql.cj.jdbc.Driver
+swagger3:
+   enable: true
+   title: WebDiary2
+   description: For WebDiary API
+   authHeader: token
