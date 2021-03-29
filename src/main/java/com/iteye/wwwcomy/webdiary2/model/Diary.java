@@ -14,7 +14,7 @@ public class Diary {
 
 	private Long id;
 	private Date date;
-	private Long userId;
+	private String userId;
 	private String weather;
 	private String title;
 	private String content;
@@ -67,11 +67,11 @@ public class Diary {
 	}
 
 	@JsonIgnore
-	public Long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
