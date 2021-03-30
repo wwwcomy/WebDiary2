@@ -44,8 +44,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.formLogin()
 				// .loginPage("/login") // This is for custom login page, although it is the
 				// same URL with the out-of-box login page
-				.and().authorizeRequests().antMatchers(AUTH_WHITELIST).permitAll()
-				//
+				.and().authorizeRequests() //
+				.antMatchers(AUTH_WHITELIST).permitAll() //
 				.anyRequest().authenticated().and().csrf().disable();
 	}
 
