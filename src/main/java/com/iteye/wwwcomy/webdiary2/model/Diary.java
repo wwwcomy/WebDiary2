@@ -3,7 +3,6 @@ package com.iteye.wwwcomy.webdiary2.model;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -13,8 +12,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class Diary {
 
 	private Long id;
-	private Date date;
-	private Long userId;
+	private Date diaryDate;
+	private String username;
 	private String weather;
 	private String title;
 	private String content;
@@ -34,12 +33,12 @@ public class Diary {
 	 * @return
 	 */
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	public Date getDate() {
-		return date;
+	public Date getDiaryDate() {
+		return diaryDate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDiaryDate(Date date) {
+		this.diaryDate = date;
 	}
 
 	public String getContent() {
@@ -66,21 +65,20 @@ public class Diary {
 		this.title = title;
 	}
 
-	@JsonIgnore
-	public Long getUserId() {
-		return userId;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public Diary update(Diary diary) {
 		if (null != diary.getContent()) {
 			setContent(diary.getContent());
 		}
-		if (null != diary.getDate()) {
-			setDate(diary.getDate());
+		if (null != diary.getDiaryDate()) {
+			setDiaryDate(diary.getDiaryDate());
 		}
 		if (null != diary.getTitle()) {
 			setTitle(diary.getTitle());
@@ -95,4 +93,11 @@ public class Diary {
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
+
+	@Override
+	public String toString() {
+		return " [" + id + "\t " + diaryDate + "\t " + username + "\t " + weather + "\t " + title + "\t " + content
+				+ "\t " + createdDate + "]";
+	}
+
 }

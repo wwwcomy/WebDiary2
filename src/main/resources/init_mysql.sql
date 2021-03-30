@@ -1,3 +1,5 @@
+create database webdiary default character set utf8mb4 collate utf8mb4_unicode_ci;
+
 create table users (
     username varchar(50) not null primary key,
     password varchar(50) not null,
@@ -14,3 +16,20 @@ create table authorities (
 
 insert into users (username,password,enabled) values ('admin','{noop}admin',true);
 insert into authorities(username,authority) values ('admin','ADMIN');
+
+create table diary (
+	id int UNSIGNED not null primary key AUTO_INCREMENT,
+    diaryDate datetime not null,
+    username varchar(50) not null,
+    weather varchar(50) not null,
+    title varchar(200) not null,
+    memo varchar(15000) not null, --max 16383 for utf8mb4_unicode_ci
+    createdDate datetime not null
+) engine = InnoDb;
+
+-- notice that by default, mysql in MAC does not support Chinese, need to define /etc/my.cnf
+-- https://www.jianshu.com/p/e4923a6b1b3b
+
+insert into diary (diaryDate, username, weather,title,memo, createdDate)
+values
+('2017-11-05 20:29:36', 'admin','晴天','标题1','这是内容','2017-11-05 20:29:36');
