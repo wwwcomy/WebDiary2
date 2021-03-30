@@ -23,7 +23,7 @@ create table diary (
     username varchar(50) not null,
     weather varchar(50) not null,
     title varchar(200) not null,
-    memo varchar(15000) not null,
+    memo MEDIUMTEXT,
     created_date datetime not null
 ) engine = InnoDb;
 -- max 16383 for utf8mb4_unicode_ci
